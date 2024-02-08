@@ -57,7 +57,7 @@ npm run start;
 ```
 
 # Postman Collection
-https://www.postman.com/geswander/workspace/smokers/collection/5491239-cd4543b0-8f5a-4627-94f7-acf0b23cee2b
+https://restless-crescent-316797.postman.co/workspace/smokers~30ec4ed1-2546-4a71-8da8-b4abf6fc2871/collection/5491239-cd4543b0-8f5a-4627-94f7-acf0b23cee2b?action=share&creator=5491239
 
 
 # Stopping the API server
