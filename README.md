@@ -42,6 +42,13 @@ cp .env.sample .env;
 
 You'll need to place a value for `DATABASE_HOST` & `DATABASE_PASSWORD`. You'll be given these values.
 
+# Setup db tables and insert JSON files
+Run:
+```
+npm run db_setup;
+npm run insert_data;
+```
+
 # Starting the API server
 
 Run:
@@ -49,12 +56,9 @@ Run:
 npm run start;
 ```
 
-# Setup db tables and insert JSON files
-Run:
-```
-npm run db_setup;
-npm run insert_data;
-```
+# Postman Collection
+https://www.postman.com/geswander/workspace/smokers/collection/5491239-cd4543b0-8f5a-4627-94f7-acf0b23cee2b
+
 
 # Stopping the API server
 
