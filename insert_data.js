@@ -40,8 +40,12 @@ function insertDataFromFile(filePath) {
               model_id: undefined,
               bluetoothMTU: undefined,
               brand: undefined,
-              testing: undefined,
             };
+            sanitizedConfig.testing = {
+              whitelist: config.testing.whitelist,
+              status: undefined,
+            };
+
             return new Promise((configResolve, configReject) => {
               pool.query(
                 `
