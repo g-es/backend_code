@@ -49,6 +49,13 @@ Run:
 npm run start;
 ```
 
+# Setup db tables and insert JSON files
+Run:
+```
+npm run db_setup;
+npm run insert_data;
+```
+
 # Stopping the API server
 
 Press:
