@@ -11,7 +11,7 @@ const dbParams = {
   database: process.env.DATABASE_NAME,
   password: process.env.DATABASE_PASSWORD,
   port: process.env.DATABASE_PORT,
-  // TODO got error "no pg_hba.conf entry for host "99.22.221.157", user "postgres", database "code_test", no encryption"
+  // TODO without this, I got error "no pg_hba.conf entry for host "99.22.221.157", user "postgres", database "code_test", no encryption"
   ssl: {
     rejectUnauthorized: false
   }

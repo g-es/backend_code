@@ -33,7 +33,7 @@ router.get("/:model_id/configurations", async function (request, response, next)
 	const { params: { model_id }, query: { published } } = request;
 	try {
 		let configurations;
-		// TODO if it's false, do we get beta configs, or get all configs
+		// TODO if it's false, do we get all the other configs, or simply get all configs
 		if (published === 'true') {
 			configurations = await configurationsDao.getPublishedConfigurations(model_id);
 		} else {

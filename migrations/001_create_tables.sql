@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS configurations (
     data JSONB
 );
 
---TODO, initially I thought each JSON file would only have 1 'production', but it seems to be wrong 
+--TODO, initially I thought each JSON file would only have 1 'production', but it seems to be wrong?
 -- CREATE UNIQUE INDEX idx_production_model ON configurations (model_id) WHERE testing_status = 'production';
 
 
