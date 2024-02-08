@@ -1,0 +1,141 @@
+{
+	"model": "P:G:018:1:D",
+	"configurations": [
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker",
+				"Smokey Grill"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Smokey®",
+			"provisioning": {
+				"instructions": [
+					"Turn the dial to Wi-Fi mode.",
+					"Press and hold the CONNECT button until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": "null"
+			},
+			"testing": {
+				"status": "production",
+				"whitelist": []
+			}
+		},
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker",
+				"Smokey Grill"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Smokey®",
+			"provisioning": {
+				"instructions": [
+					"Turn the dial to Wi-Fi mode.",
+					"Press and hold the CONNECT button until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": "null"
+			},
+			"testing": {
+				"status": "production",
+				"whitelist": []
+			}
+		},
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker",
+				"Smokey Grill"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Smokey®",
+			"provisioning": {
+				"instructions": [
+					"Turn the dial to Wi-Fi mode.",
+					"Press and hold the CONNECT button until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": "null"
+			},
+			"testing": {
+				"status": "beta",
+				"whitelist": []
+			}
+		},
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker",
+				"Smokey Grill"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Smokey®",
+			"provisioning": {
+				"instructions": [
+					"Turn the dial to Wi-Fi mode.",
+					"Press and hold the CONNECT button until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": "null"
+			},
+			"testing": {
+				"status": "production",
+				"whitelist": []
+			}
+		}
+	]
+}

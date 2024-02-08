@@ -1,0 +1,178 @@
+{
+	"model": "C:G:XT:1:D",
+	"configurations": [
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Ultra Smokey + Smoker",
+			"provisioning": {
+				"instructions": [
+					"Press and hold the CONNECT button on your Smokey device until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": null
+			},
+			"testing": {
+				"status": "beta",
+				"whitelist": [
+					"308871700@qq.com"
+				]
+			}
+		},
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Ultra Smokey + Smoker",
+			"provisioning": {
+				"instructions": [
+					"Press and hold the CONNECT button on your Smokey device until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": null
+			},
+			"testing": {
+				"status": "production",
+				"whitelist": [
+					"2094968390@qq.com",
+					"1542824754@qq.com",
+					"308871700@qq.com"
+				]
+			}
+		},
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Ultra Smokey + Smoker",
+			"provisioning": {
+				"instructions": [
+					"Press and hold the CONNECT button on your Smokey device until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": null
+			},
+			"testing": {
+				"status": "beta",
+				"whitelist": [
+					"2094968390@qq.com",
+					"1542824754@qq.com",
+					"308871700@qq.com"
+				]
+			}
+		},
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Ultra Smokey + Smoker",
+			"provisioning": {
+				"instructions": [
+					"Press and hold the CONNECT button on your Smokey device until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": null
+			},
+			"testing": {
+				"status": "beta",
+				"whitelist": [
+					"1542824754@qq.com",
+					"308871700@qq.com"
+				]
+			}
+		},
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Ultra Smokey + Smoker",
+			"provisioning": {
+				"instructions": [
+					"Press and hold the CONNECT button on your Smokey device until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": null
+			},
+			"testing": {
+				"status": "beta",
+				"whitelist": []
+			}
+		}
+	]
+}

@@ -1,0 +1,101 @@
+{
+	"model": "C:G:P24:1:D",
+	"configurations": [
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Smokey Charcoal Grill + Smoker",
+			"provisioning": {
+				"instructions": [
+					"Press and hold the CONNECT button on your Smokey device until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": null
+			},
+			"testing": {
+				"status": "production",
+				"whitelist": []
+			}
+		},
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Smokey Charcoal Grill + Smoker",
+			"provisioning": {
+				"instructions": [
+					"Press and hold the CONNECT button on your Smokey device until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": null
+			},
+			"testing": {
+				"status": "beta",
+				"whitelist": []
+			}
+		},
+		{
+			"bleAdvertisingNames": [
+				"Smokey Smoker"
+			],
+			"bluetoothDataChunks": true,
+			"bluetoothMTU": 23,
+			"brand": "Smokey",
+			"features": {
+				"openDoorMessage": null,
+				"sessionGraph": {
+					"fanSpeed": true,
+					"localStorage": true,
+					"maxSessions": 1,
+					"showHistory": true,
+					"visibility": true
+				},
+				"setTempFirst": null
+			},
+			"firmware": null,
+			"productName": "Smokey Charcoal Grill + Smoker",
+			"provisioning": {
+				"instructions": [
+					"Press and hold the CONNECT button on your Smokey device until you hear a long beep.",
+					"After the long beep, proceed to the next screen."
+				],
+				"provisionImage": null
+			},
+			"testing": {
+				"status": "beta",
+				"whitelist": []
+			}
+		}
+	]
+}
