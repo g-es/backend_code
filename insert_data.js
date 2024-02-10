@@ -1,112 +1,91 @@
 import fs from 'fs';
 import pool from './src/db.js';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-function insertDataFromFile(filePath) {
-  return new Promise((resolve, reject) => {
-    fs.readFile(filePath, 'utf8', (err, jsonData) => {
-      if (err) {
-        console.error(`Error reading file ${filePath}:`, err);
-        reject(err);
-        return;
-      }
 
-      const data = JSON.parse(jsonData);
-
-      // Assuming 'model' and 'configurations' are always present
-      const { model, configurations } = data;
-
-      pool.query(
-        'INSERT INTO models (model_name) VALUES ($1) ON CONFLICT DO NOTHING RETURNING id',
-        [model],
-        (modelError, modelResult) => {
-          if (modelError) {
-            console.error(`Error inserting model from file ${filePath}:`, modelError);
-            reject(modelError);
-            return;
-          }
-
-          const modelId = modelResult.rows[0]?.id;
-
-          if (!modelId) {
-            console.error(`Model already exists for file ${filePath}`);
-            resolve(); // Model already exists, resolve without inserting configurations
-            return;
-          }
-
-          // Insert configurations
-          const insertConfigurations = configurations.map((config) => {
-            const sanitizedConfig = {
-              ...config,
-              model_id: undefined,
-              bluetoothMTU: undefined,
-              brand: undefined,
-            };
-            sanitizedConfig.testing = {
-              whitelist: config.testing.whitelist,
-              status: undefined,
-            };
-
-            return new Promise((configResolve, configReject) => {
-              pool.query(
-                `
-                INSERT INTO configurations (
-                  model_id, 
-                  bluetooth_mtu, 
-                  brand, 
-                  testing_status, 
-                  data
-                ) VALUES ($1, $2, $3, $4, $5)
-                `,
-                [
-                  modelId,
-                  config.bluetoothMTU,
-                  config.brand,
-                  config.testing.status,
-                  sanitizedConfig,
-                ],
-                (configError) => {
-                  if (configError) {
-                    console.error(`Error inserting configuration from file ${filePath}:`, configError);
-                    configReject(configError);
-                  } else {
-                    configResolve();
-                  }
-                }
-              );
-            });
-          });
-
-          Promise.all(insertConfigurations)
-            .then(() => {
-              console.log(`Inserted data from file: ${filePath}`);
-              resolve();
-            })
-            .catch((configErrors) => {
-              console.error(`Error inserting configurations from file ${filePath}:`, configErrors);
-              reject(configErrors);
-            });
-        }
-      );
-    });
-  });
+async function insertModel(model) {
+  try {
+    const modelResult = await pool.query(
+      'INSERT INTO models (model_name) VALUES ($1) ON CONFLICT DO NOTHING RETURNING id',
+      [model]
+    );
+    return modelResult.rows[0]?.id;
+  } catch (error) {
+    console.error('Error inserting model:', error);
+    throw error;
+  }
 }
 
-const jsonFilesBasePath = 'migration_source_data/models';
-const filePromises = [];
+async function insertConfiguration(modelId, config, filePath) {
+  try {
+    const sanitizedConfig = {
+      ...config,
+      model_id: undefined,
+      bluetoothMTU: undefined,
+      brand: undefined,
+    };
+    sanitizedConfig.testing = {
+      whitelist: config.testing.whitelist,
+      status: undefined,
+    };
+    await pool.query(`
+      INSERT INTO configurations (model_id, bluetooth_mtu, brand, testing_status, data)
+      VALUES ($1, $2, $3, $4, $5)
+      `,
+      [modelId, config.bluetoothMTU, config.brand, config.testing.status, sanitizedConfig]
+    );
+    console.log(`Inserted data from file: ${filePath}`);
+  } catch (error) {
+    console.error(`Error inserting configuration from file ${filePath}:`, error);
+    throw error;
+  }
+}
 
-// Loop through each JSON file and create an array of promises
-fs.readdirSync(jsonFilesBasePath).forEach((jsonFile) => {
-  const fullJsonFilePath = `${jsonFilesBasePath}/${jsonFile}`;
-  filePromises.push(insertDataFromFile(fullJsonFilePath));
-});
+async function insertDataFromFile(filePath) {
+  try {
+    const jsonData = await fs.promises.readFile(filePath, 'utf8');
+    const data = JSON.parse(jsonData);
+    const { model, configurations } = data;
+    // Insert model
+    const modelId = await insertModel(model);
+    if (!modelId) {
+      console.error(`Model already exists for file ${filePath}`);
+      return;
+    }
+    // Insert configurations
+    const insertConfigPromises = configurations.map((config) =>
+      insertConfiguration(modelId, config, filePath)
+    );
+    await Promise.all(insertConfigPromises);
+  } catch (error) {
+    console.error(`Error inserting data ${filePath}:`, error);
+    throw error;
+  }
+}
 
-// Wait for all promises to resolve before closing the pool
-Promise.all(filePromises)
-  .then(() => {
+async function processFiles() {
+  const jsonFilesBasePath = path.join(__dirname, '/migration_source_data/models');
+  try {
+    const files = await fs.promises.readdir(jsonFilesBasePath);
+
+    for (const file of files) {
+      const fullJsonFilePath = path.join(jsonFilesBasePath, file);
+      try {
+        await insertDataFromFile(fullJsonFilePath);
+      } catch (error) {
+        console.error(`Error processing file ${fullJsonFilePath}:`, error);
+      }
+    }
     console.log('All files processed. Closing the database connection pool...');
+  } catch (error) {
+    console.error('Error reading directory:', error);
+  } finally {
     pool.end();
-  })
-  .catch((error) => {
-    console.error('Error processing files:', error);
-    pool.end();
-  });
+  }
+}
+
+processFiles();
