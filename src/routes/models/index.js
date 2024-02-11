@@ -8,7 +8,7 @@ router.get("/", async function (request, response, next) {
 	try {
 		const models = await modelsDao.getAllModels();
 		if (models.length <= 0) {
-			return response.status(404).json({ error: 'no model found' });
+			return response.status(404).json({ error: 'No models found' });
 		}
 		return response.json({ models });
 	} catch (error) {

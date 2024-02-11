@@ -28,8 +28,9 @@ CREATE INDEX idx_model_name ON models (model_name);
 -- Index on model_id for better performance in joins or filtering
 CREATE INDEX idx_model_id ON configurations (model_id);
 
--- Index on testing_status if frequently used in queries
-CREATE INDEX idx_testing_status ON configurations (testing_status);
+-- If we mainly search for where status = 'production', might be better to do partial indexing?
+CREATE INDEX idx_testing_prod_status ON configurations (testing_status) where testing_status = 'production';
+-- CREATE INDEX idx_testing_status ON configurations (testing_status);
 
 -- Index on brand column
 CREATE INDEX IF NOT EXISTS idx_brand ON configurations (brand);
