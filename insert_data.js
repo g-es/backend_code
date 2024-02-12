@@ -40,7 +40,6 @@ async function insertConfiguration(modelId, config, filePath) {
     );
     console.log(`Inserted data from file: ${filePath}`);
   } catch (error) {
-    console.error(`Error inserting configuration from file ${filePath}:`, error);
     throw error;
   }
 }
@@ -60,9 +59,13 @@ async function insertDataFromFile(filePath) {
       return;
     }
     // Insert configurations
-    const insertConfigPromises = configurations.map((config) =>
-      insertConfiguration(modelId, config, filePath)
-    );
+    const insertConfigPromises = configurations.map(async (config) => {
+      try {
+        await insertConfiguration(modelId, config, filePath);
+      } catch (error) {
+        console.error(`Error inserting configuration from file ${filePath}:`, error);
+      }
+    });
     await Promise.all(insertConfigPromises);
   } catch (error) {
     throw error;
