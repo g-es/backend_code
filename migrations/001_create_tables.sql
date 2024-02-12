@@ -22,9 +22,6 @@ CREATE TABLE IF NOT EXISTS configurations (
 -- CREATE UNIQUE INDEX idx_production_model ON configurations (model_id) WHERE testing_status = 'production';
 
 
--- Add an index on model_name for better search performance
-CREATE INDEX idx_model_name ON models (model_name);
-
 -- Index on model_id for better performance in joins or filtering
 CREATE INDEX idx_model_id ON configurations (model_id);
 
