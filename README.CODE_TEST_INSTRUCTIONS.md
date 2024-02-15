@@ -64,7 +64,7 @@ This API doesn't currently have any documentation at all.
 👉 **Document only ONE of the API endpoints you worked on**
 
 > 👮‍♂️ If you tested your API with PostMan, you can skip this step 🙌 !\
-> Simply invite a member of WeAreEnvoy's staff to your PostMan Collection so we can see it. 🚓
+> Simply invite a member of XXX's staff to your PostMan Collection so we can see it. 🚓
 
 _____
 

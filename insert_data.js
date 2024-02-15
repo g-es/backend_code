@@ -20,7 +20,7 @@ async function insertModel(model) {
   }
 }
 
-async function insertConfiguration(modelId, config, filePath) {
+function insertConfiguration(modelId, config, filePath) {
   try {
     const sanitizedConfig = {
       ...config,
@@ -32,13 +32,12 @@ async function insertConfiguration(modelId, config, filePath) {
       whitelist: config.testing.whitelist,
       status: undefined,
     };
-    await pool.query(`
+    return pool.query(` 
       INSERT INTO configurations (model_id, bluetooth_mtu, brand, testing_status, data)
       VALUES ($1, $2, $3, $4, $5)
       `,
       [modelId, config.bluetoothMTU, config.brand, config.testing.status, sanitizedConfig]
     );
-    console.log(`Inserted data from file: ${filePath}`);
   } catch (error) {
     throw error;
   }

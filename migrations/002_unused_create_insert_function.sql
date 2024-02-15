@@ -1,4 +1,4 @@
--- TODO this function is not used, just thinking about how to make code more readable. 
+-- TODO this file is not used, just thinking about how to make code more readable. 
 -- a. creating this function + call it in insert_data.js
 -- b. creating this function + use a pg_ls_dir to read files, then call it
 -- c. current insert_data.js logic
@@ -22,13 +22,20 @@ LOOP
     sanitized_data := jsonb_build_object(
         'bleAdvertisingNames', (entry_data->'bleAdvertisingNames'),
         'bluetoothDataChunks', (entry_data->>'bluetoothDataChunks')::BOOLEAN,
-        'bluetoothMTU', (entry_data->>'bluetoothMTU')::INT,
         'testing', (jsonb_build_object('whitelist', (entry_data->'testing'->'whitelist')::JSONB)),
         'features', (entry_data->'features')::JSONB,
         'firmware', (entry_data->'firmware')::JSONB,
         'productName', (entry_data->>'productName'),
         'provisioning', (entry_data->'provisioning')::JSONB
     );
+    -- sanitized_data := jsonb_object_agg(
+    --     key,
+    --     CASE
+    --         WHEN key = 'brand' OR key = 'bluetoothMTU' THEN NULL
+    --         ELSE entry_data->key
+    --     END
+    -- )
+    -- FROM jsonb_each(entry_data);
 
     -- Insert data into configurations table
     INSERT INTO configurations (model_id, bluetooth_mtu, brand, testing_status, data)
@@ -38,6 +45,7 @@ LOOP
             entry_data->'testing'->>'status',
             sanitized_data)
     ON CONFLICT DO NOTHING;
+    -- need to handle exception
 
     END LOOP;
 END;

@@ -7,9 +7,6 @@ const router = express.Router();
 router.get("/", async function (request, response, next) {
 	try {
 		const models = await modelsDao.getAllModels();
-		if (models.length <= 0) {
-			return response.status(404).json({ error: 'No models found' });
-		}
 		return response.json({ models });
 	} catch (error) {
 		return errorHandler.handlePostgresError(error, response);
@@ -33,17 +30,12 @@ router.get("/:model_id/configurations", async function (request, response, next)
 	const { params: { model_id }, query: { published } } = request;
 	try {
 		let configurations;
-		// TODO if it's false, do we get all the other configs, or simply get all configs
 		if (published === 'true') {
 			configurations = await configurationsDao.getPublishedConfigurations(model_id);
 		} else {
 			configurations = await configurationsDao.getAllConfigurations(model_id);
 		}
-
-		if (configurations.length > 0) {
-			return response.json({ configurations });
-		}
-		return response.status(404).json({ error: 'No configurations found' });
+		return response.json({ configurations });
 	} catch (error) {
 		return errorHandler.handlePostgresError(error, response);
 	}
